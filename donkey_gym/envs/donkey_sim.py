@@ -97,7 +97,7 @@ class DonkeyUnitySimHandler(IMesgHandler):
         self.camera_img_size=(80, 160, 3)
         self.image_array = np.zeros(self.camera_img_size)
         self.last_obs = None
-        self.last_throttle = None
+        self.last_throttle = 0.0
         self.hit = "none"
         self.cte = 0.0
         self.x = 0.0
@@ -150,10 +150,10 @@ class DonkeyUnitySimHandler(IMesgHandler):
             print("take_action")
 
         # Static throttle
-        action[1] = 0.5
-        self.last_throttle = action[1]
+        throttle = 0.5
+        self.last_throttle = throttle
 
-        self.send_control(action[0], action[1])
+        self.send_control(action[0], throttle)
 
     def observe(self):
         while self.last_obs is self.image_array:
