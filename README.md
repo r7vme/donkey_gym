@@ -1,6 +1,6 @@
 # donkey_gym
 
-OpenAI gym environment for donkeycar simulator.
+OpenAI gym environment for donkeycar simulator with reward function equal to velocity.
 
 # Legal notice
 
