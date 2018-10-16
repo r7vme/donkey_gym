@@ -171,6 +171,9 @@ class DonkeyUnitySimHandler(IMesgHandler):
 
 
     def is_game_over(self):
+        # Workarund for big error at start.
+        if math.fabs(self.cte) > 2 * self.CTE_MAX_ERR:
+            return False
         return self.hit != "none" or math.fabs(self.cte) > self.CTE_MAX_ERR
 
     ## ------ RL interface ----------- ##
